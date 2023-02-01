@@ -1,9 +1,17 @@
-function sum(num1, num2){
-    return num1 + num2;
-}
+const promise = new Promise(function (resolve, reject) {
+    resolve('Todo nice')
+});
 
-function calc(num1, num2, callback){
-    return callback(num1, num2);
-}
+const cows = 9;
 
-console.log(calc(2,2,sum));
+const countCows = new Promise(function (resolve, reject){
+    if(cows > 10) {
+        resolve(`We have ${cows} cows on the farm`);
+    } else {
+        reject("There is not enough cows on the farm")
+    }
+});
+
+countCows.then((result) => {
+    console.log(result);
+})
